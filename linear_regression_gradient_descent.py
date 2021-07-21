@@ -72,9 +72,9 @@ def gradient_descent(x, th0, th1, y, alfa):
     p0 = []
     p1 = []
     new_th0, new_th1 = adjust_parameters(x, th0, th1, y, alfa)
-    # while abs(th0 - new_th0) > 0.001 or abs(th1 - new_th1) > 0.001:
-    for i in range(10):
-        print(abs(th0 - new_th0), abs(th1 - new_th1))
+    while abs(th0 - new_th0) > 0.001 or abs(th1 - new_th1) > 0.001:
+    # for i in range(10):
+    #     print(abs(th0 - new_th0), abs(th1 - new_th1))
         c = compute_cost(x, th0, th1, y)
         cost.append(c)
         print("cost:", c)
@@ -85,13 +85,12 @@ def gradient_descent(x, th0, th1, y, alfa):
         new_th0, new_th1 = adjust_parameters(x, th0, th1, y, alfa)
 
     # plot(p0, p1, cost)
-
     return th0, th1
 
 
 def run():
     x, y = read_file("ex1data1.txt")
-    gradient_descent(x, 1.0, 1.0, y, 0.1)
+    gradient_descent(x, 1.0, 1.0, y, 0.001)
 
 
 if __name__ == '__main__':
