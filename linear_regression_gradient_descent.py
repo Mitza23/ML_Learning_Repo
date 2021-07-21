@@ -57,7 +57,7 @@ def plot(p0, p1, cost):
     cost = np.array(cost)
 
     X, Y = np.meshgrid(p0, p1)
-    Z = cost.reshape(cost, (len(cost), 1))
+    Z = cost.reshape((len(cost), 1))
 
     fig = plt.figure()
     ax = fig.gca(projection='3d')
@@ -84,7 +84,7 @@ def gradient_descent(x, th0, th1, y, alfa):
         th1 = deepcopy(new_th1)
         new_th0, new_th1 = adjust_parameters(x, th0, th1, y, alfa)
 
-    # plot(p0, p1, cost)
+    plot(p0, p1, cost)
     return th0, th1
 
 
