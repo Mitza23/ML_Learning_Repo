@@ -77,7 +77,7 @@ def gradient_descent(x, th0, th1, y, alfa):
     #     print(abs(th0 - new_th0), abs(th1 - new_th1))
         c = compute_cost(x, th0, th1, y)
         cost.append(c)
-        print("cost:", c)
+        # print("cost:", c)
         p0.append(th0)
         p1.append(th1)
         th0 = deepcopy(new_th0)
@@ -90,8 +90,15 @@ def gradient_descent(x, th0, th1, y, alfa):
 
 def run():
     x, y = read_file("ex1data1.txt")
-    gradient_descent(x, 1.0, 1.0, y, 0.001)
+    th0 = 1.0
+    th1 = 1.0
+    th0, th1 = gradient_descent(x, th0, th1, y, 0.001)
+    print("th0:", th0, "    th1:", th1)
+    return th0, th1
 
 
 if __name__ == '__main__':
-    run()
+    population = input("How big is the city(in millions) >> ")
+    th0, th1 = run()
+    print("The estimated profit is:", th0 + np.float64(population) * th1)
+
