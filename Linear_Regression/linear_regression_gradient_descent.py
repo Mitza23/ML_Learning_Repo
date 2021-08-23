@@ -9,13 +9,13 @@ import numpy as np
 def read_file(file_name):
     x = []
     y = []
-    f = open(file_name, 'r')
-    line = f.readline()
-    while len(line) > 0:
-        tokens = line.strip().split(",")
-        x.append(float(tokens[0]))
-        y.append(float(tokens[1]))
+    with open(file_name, 'r') as f:
         line = f.readline()
+        while len(line) > 0:
+            tokens = line.strip().split(",")
+            x.append(float(tokens[0]))
+            y.append(float(tokens[1]))
+            line = f.readline()
     return x, y
 
 
